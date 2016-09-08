@@ -3,6 +3,5 @@
     android:id="@+id/imageview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:src="@drawable/bg_init_page_img"
     android:scaleType="centerCrop"/>
 

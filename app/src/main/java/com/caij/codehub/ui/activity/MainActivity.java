@@ -150,12 +150,6 @@ public class MainActivity extends BaseCodeHubToolBarActivity implements MainUi {
         startActivity(intent);
     }
 
-    @OnClick(R.id.ll_about)
-    public void onAboutClick() {
-        mDrawerLayout.closeDrawer(Gravity.LEFT);
-        Intent intent = new Intent(this, AboutActivity.class);
-        startActivity(intent);
-    }
 
     public void switchContent(Fragment from, Fragment to, int id) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

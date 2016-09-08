@@ -3,7 +3,7 @@ package com.caij.codehub;
 import java.util.Map;
 
 /**
- * Created by Caij on 2015/8/25.
+ * Created by rafael on 2016/8/25.
  */
 public class API {
 
@@ -41,7 +41,7 @@ public class API {
 
     public static final String GITHUB_FILE = "https://github.com/%s/%s/%s/%s";
 
-    public static final String PROJECT_README_URL = "https://github.com/Caij/CodeHub/blob/master/README.md";
+    public static final String PROJECT_README_URL = "https://github.com/rhsilva/CodeHub/blob/master/README.md";
 
-    public static final String PROJECT_URL = "https://github.com/Caij/CodeHub";
+    public static final String PROJECT_URL = "https://github.com/rhsilva/CodeHub";
 }

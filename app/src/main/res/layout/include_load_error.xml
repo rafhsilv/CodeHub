@@ -5,17 +5,17 @@
     android:layout_height="wrap_content"
     android:gravity="center">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/source_data_load_error"
-        android:scaleType="centerCrop"/>
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/source_data_load_error"-->
+        <!--android:scaleType="centerCrop"/>-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/big_body_text_size"
-        android:text="@string/data_load_error"/>
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="@dimen/big_body_text_size"-->
+        <!--android:text="@string/data_load_error"/>-->
 
     <Button
         android:id="@+id/btn_refresh"

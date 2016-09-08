@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CodeHub</string>
+    <string name="app_name">github mngr</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -89,7 +89,7 @@
     <string name="following">Following</string>
 
     <string name="description_search">Search</string>
-    <string name="wether_logout">Whether or not logout</string>
+    <string name="wether_logout">Do you really want to logout?</string>
     <string name="fork">Fork</string>
     <string name="time">Time</string>
     <string name="logout">Logout</string>
