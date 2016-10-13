@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Caij on 2015/9/19.
+ * /9/19.
  */
 public class RepositoryInfoInteractorImp implements RepositoryInfoInteractor {
 

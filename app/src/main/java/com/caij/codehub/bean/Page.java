@@ -1,8 +1,5 @@
 package com.caij.codehub.bean;
 
-/**
- * Created by Caij on 2015/9/21.
- */
 public class Page {
 
     public final static int DEFAULT_PAGE_INDEX = 1;

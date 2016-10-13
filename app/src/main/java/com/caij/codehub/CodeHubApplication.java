@@ -8,10 +8,6 @@ import com.caij.lib.utils.SPUtils;
 import com.caij.lib.utils.VolleyManager;
 import com.caij.lib.volley.stack.OkHttpStack;
 
-
-/**
- * Created by Caij on 2015/8/25.
- */
 public class CodeHubApplication extends Application{
 
     private static final String SP_FILE_NAME = "profile";

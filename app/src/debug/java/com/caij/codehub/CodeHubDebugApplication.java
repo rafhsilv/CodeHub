@@ -6,10 +6,6 @@ import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
-
-/**
- * Created by Caij on 15/11/03.
- */
 public class CodeHubDebugApplication extends CodeHubApplication {
 
     private RefWatcher refWatcher;

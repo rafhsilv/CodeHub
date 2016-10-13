@@ -17,9 +17,6 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Caij on 2015/11/3.
- */
 public class CommentActionInteractorImp implements CommentActionInteractor {
 
 //    POST /repos/:owner/:repo/issues/:number/comments

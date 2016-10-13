@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Caij on 2015/10/31.
+ * /10/31.
  */
 public class InteractorFactory {
 

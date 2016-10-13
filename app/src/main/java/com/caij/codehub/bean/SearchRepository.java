@@ -2,13 +2,7 @@ package com.caij.codehub.bean;
 
 import java.util.List;
 
-/**
- * Created by Caij on 2015/9/21.
- */
 public class SearchRepository {
-
-    /**
-     */
 
     private int total_count;
     private boolean incomplete_results;

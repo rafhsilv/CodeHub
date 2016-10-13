@@ -6,7 +6,7 @@ import com.caij.codehub.bean.Token;
 import java.util.List;
 
 /**
- * Created by Caij on 2015/8/25.
+ * /8/25.
  */
 public interface AuthenticationInteractor extends Interactor {
     public void login(String username, String pwd, Object requestTag, InteractorCallBack<Token> interactorCallBack);

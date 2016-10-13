@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Caij on 2015/11/1.
+ * /11/1.
  */
 public class FollowActionInteractorImp implements FollowActionInteractor {
 

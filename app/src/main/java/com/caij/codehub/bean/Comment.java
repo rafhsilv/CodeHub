@@ -2,9 +2,6 @@ package com.caij.codehub.bean;
 
 import java.util.Date;
 
-/**
- * Created by Caij on 2015/9/24.
- */
 public class Comment extends Entity{
     /**
      * url : https://api.github.com/repos/android-cn/android-discuss/issues/comments/142839468

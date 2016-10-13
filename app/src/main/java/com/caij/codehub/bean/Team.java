@@ -1,19 +1,6 @@
 package com.caij.codehub.bean;
 
-/**
- * Created by Caij on 2015/10/30.
- */
 public class Team extends Entity{
-
-    /**
-     * name : Contractors
-     * id : 123456
-     * slug : contractors
-     * permission : admin
-     * url : https://api.github.com/teams/123456
-     * members_url : https://api.github.com/teams/123456/members{/member}
-     * repositories_url : https://api.github.com/teams/123456/repos
-     */
 
     private String name;
     private int id;

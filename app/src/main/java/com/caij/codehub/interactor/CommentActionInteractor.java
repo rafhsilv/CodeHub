@@ -3,7 +3,7 @@ package com.caij.codehub.interactor;
 import com.caij.codehub.bean.Comment;
 
 /**
- * Created by Caij on 2015/11/3.
+ * /11/3.
  */
 public interface CommentActionInteractor extends Interactor {
 

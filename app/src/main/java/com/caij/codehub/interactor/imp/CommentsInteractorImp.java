@@ -13,9 +13,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
 
-/**
- * Created by Caij on 2015/10/31.
- */
 public class CommentsInteractorImp implements CommentsInteractor {
 
 

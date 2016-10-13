@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Caij on 2015/9/18.
+ * /9/18.
  */
 public class UserInteractorImp implements UserInteractor {
 

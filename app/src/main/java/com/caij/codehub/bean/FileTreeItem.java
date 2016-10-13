@@ -1,8 +1,6 @@
 package com.caij.codehub.bean;
 
-/**
- * Created by Caij on 2/11/15.
- */
+
 public class FileTreeItem extends Entity{
 
     private static final long serialVersionUID = 6518261551932913340L;

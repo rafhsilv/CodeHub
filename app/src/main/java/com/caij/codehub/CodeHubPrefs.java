@@ -8,9 +8,6 @@ import com.caij.codehub.utils.Base64;
 import com.caij.lib.utils.GsonUtils;
 import com.caij.lib.utils.SPUtils;
 
-/**
- * Created by Caij on 2015/11/7.
- */
 public class CodeHubPrefs {
 
     public static final String USER_TOKEN = "user_token";

@@ -1,8 +1,5 @@
 package com.caij.codehub.bean;
 
-/**
- * Created by Caij on 2015/10/30.
- */
 public class Org {
 
     private int id;

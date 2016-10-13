@@ -2,10 +2,6 @@ package com.caij.codehub.bean;
 
 import java.util.List;
 
-/**
- *
- * 
- */
 public class Token extends Entity{
 	private int id;
 	private String url;

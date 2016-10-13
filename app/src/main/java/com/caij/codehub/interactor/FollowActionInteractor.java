@@ -3,7 +3,7 @@ package com.caij.codehub.interactor;
 import com.android.volley.NetworkResponse;
 
 /**
- * Created by Caij on 2015/11/1.
+ * /11/1.
  */
 public interface FollowActionInteractor extends Interactor {
 

@@ -5,7 +5,7 @@ import com.caij.codehub.bean.Comment;
 import java.util.List;
 
 /**
- * Created by Caij on 2015/10/31.
+ * /10/31.
  */
 public interface CommentsInteractor extends Interactor {
 
