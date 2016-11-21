@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.caij.codehub.widgets.LinearBreadcrumb
+    <com.rafael.githubmngr.widgets.LinearBreadcrumb
         android:id="@+id/bread_crumbs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

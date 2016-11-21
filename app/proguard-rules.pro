@@ -22,7 +22,7 @@
 -keepattributes Signature
 # Gson specific classes
 -keep class sun.misc.Unsafe { *; }
--keep class com.caij.codehub.bean.** { *; }
+-keep class com.rafael.githubmngr.bean.** { *; }
 
 #Glide
 -keep public class * implements com.bumptech.glide.module.GlideModule
@@ -39,7 +39,7 @@
 -keepclassmembers class * {
    public <init>(org.json.JSONObject);
 }
--keep public class com.caij.codehub.R$*{
+-keep public class com.rafael.githubmngr.R$*{
 public static final int *;
 }
 -keepclassmembers enum * {

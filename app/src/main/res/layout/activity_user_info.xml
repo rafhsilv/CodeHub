@@ -153,7 +153,7 @@
                     android:gravity="center_vertical"
                     android:padding="@dimen/standard_margin">
 
-                    <com.caij.codehub.widgets.GithubTypeFaceTextView
+                    <com.rafael.githubmngr.widgets.GithubTypeFaceTextView
                         android:id="@+id/tv_user_location_icon"
                         style="@style/TvIcon"
                         android:text="@string/icon_locate"
@@ -183,7 +183,7 @@
                     android:gravity="center_vertical"
                     android:padding="@dimen/standard_margin">
 
-                    <com.caij.codehub.widgets.GithubTypeFaceTextView
+                    <com.rafael.githubmngr.widgets.GithubTypeFaceTextView
                         android:id="@+id/tv_repository_email_icon"
                         style="@style/TvIcon"
                         android:text="@string/icon_email"
@@ -214,7 +214,7 @@
                     android:gravity="center_vertical"
                     android:padding="@dimen/standard_margin">
 
-                    <com.caij.codehub.widgets.GithubTypeFaceTextView
+                    <com.rafael.githubmngr.widgets.GithubTypeFaceTextView
                         android:id="@+id/tv_user_blog_icon"
                         style="@style/TvIcon"
                         android:text="@string/icon_blog"
@@ -245,7 +245,7 @@
                     android:gravity="center_vertical"
                     android:padding="@dimen/standard_margin">
 
-                    <com.caij.codehub.widgets.GithubTypeFaceTextView
+                    <com.rafael.githubmngr.widgets.GithubTypeFaceTextView
                         android:id="@+id/tv_user_company_icon"
                         style="@style/TvIcon"
                         android:text="@string/icon_company"
@@ -275,7 +275,7 @@
                     android:gravity="center_vertical"
                     android:padding="@dimen/standard_margin">
 
-                    <com.caij.codehub.widgets.GithubTypeFaceTextView
+                    <com.rafael.githubmngr.widgets.GithubTypeFaceTextView
                         android:id="@+id/tv_user_join_time_icon"
                         style="@style/TvIcon"
                         android:text="@string/icon_join"

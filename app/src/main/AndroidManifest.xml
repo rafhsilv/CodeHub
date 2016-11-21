@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.caij.codehub" >
+    package="com.rafael.githubmngr" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -9,21 +9,21 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
-        android:name=".CodeHubApplication"
+        android:name="com.rafael.githubmngr.CodeHubApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         >
 
-        <meta-data android:name="com.caij.codehub.utils.MyGlideModule"
+        <meta-data android:name="com.rafael.githubmngr.utils.MyGlideModule"
             android:value="GlideModule"/>
 
         <meta-data android:name="UMENG_APPKEY" android:value="563f147ce0f55ae895005ce3" />
         <meta-data android:name="UMENG_CHANNEL" android:value="${UMENG_CHANNEL_VALUE}" />
 
         <activity
-            android:name=".ui.activity.InitActivity"
+            android:name="com.rafael.githubmngr.ui.activity.InitActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/No.SwipeBack.Theme">
@@ -34,87 +34,87 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name="com.rafael.githubmngr.ui.activity.LoginActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTask"
             android:theme="@style/No.SwipeBack.Theme">
         </activity>
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name="com.rafael.githubmngr.ui.activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/No.SwipeBack.Theme">
         </activity>
         <activity
-            android:name=".ui.activity.RepositoryInfoActivity"
+            android:name="com.rafael.githubmngr.ui.activity.RepositoryInfoActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".ui.activity.UserInfoActivity"
+            android:name="com.rafael.githubmngr.ui.activity.UserInfoActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".ui.activity.FollowersActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity
-            android:name=".ui.activity.FollowingActivity"
+            android:name="com.rafael.githubmngr.ui.activity.FollowersActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".ui.activity.UserRepositoriesActivity"
+            android:name="com.rafael.githubmngr.ui.activity.FollowingActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".ui.activity.WebActivity"
+            android:name="com.rafael.githubmngr.ui.activity.UserRepositoriesActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".ui.activity.IssueInfoActivity"
+            android:name="com.rafael.githubmngr.ui.activity.WebActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".ui.activity.FileTreeActivity"
+            android:name="com.rafael.githubmngr.ui.activity.IssueInfoActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".ui.activity.RepoIssuesActivity"
+            android:name="com.rafael.githubmngr.ui.activity.FileTreeActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".ui.activity.CommentActivity"
+            android:name="com.rafael.githubmngr.ui.activity.RepoIssuesActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".ui.activity.SettingActivity"
+            android:name="com.rafael.githubmngr.ui.activity.CommentActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".ui.activity.AboutActivity"
+            android:name="com.rafael.githubmngr.ui.activity.SettingActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".ui.activity.SearchActivity"
+            android:name="com.rafael.githubmngr.ui.activity.AboutActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".ui.activity.PictureReviewActivity"
+            android:name="com.rafael.githubmngr.ui.activity.SearchActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name="com.rafael.githubmngr.ui.activity.PictureReviewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Image">
         </activity>
 
         <activity
-            android:name=".ui.activity.TrendingFilterActivity"
+            android:name="com.rafael.githubmngr.ui.activity.TrendingFilterActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Dialog">
         </activity>

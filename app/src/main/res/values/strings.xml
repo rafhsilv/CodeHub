@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CodeHub</string>
+    <string name="app_name">github mngr</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -106,8 +106,8 @@
     <string name="source">Source</string>
     <string name="comment">Comment</string>
     <string name="password_error">username or password is incorrect</string>
-    <string name="about_me_github">https://github.com/Caij</string>
-    <string name="my_email">worldcaij@gmail.com</string>
+    <string name="about_me_github">https://github.com/rafhsilv</string>
+    <string name="my_email">rafaelhsilva0@gmail.com</string>
     <string name="about_me">About Me</string>
     <string name="page_nothing">There\'s nothing</string>
     <string name="user_info">user_info</string>

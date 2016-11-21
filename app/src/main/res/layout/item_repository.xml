@@ -6,7 +6,7 @@
     android:padding="@dimen/standard_margin"
     android:background="?android:attr/selectableItemBackground">
 
-    <com.caij.codehub.widgets.GithubTypeFaceTextView
+    <com.rafael.githubmngr.widgets.GithubTypeFaceTextView
         android:id="@+id/tv_repository_icon"
         style="@style/TvIcon"
         android:layout_centerVertical="true"
@@ -42,7 +42,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <com.caij.codehub.widgets.GithubTypeFaceTextView
+            <com.rafael.githubmngr.widgets.GithubTypeFaceTextView
                 android:id="@+id/tv_star_icon"
                 style="@style/TvIcon"
                 android:text="@string/icon_star"
@@ -55,7 +55,7 @@
                 android:layout_marginLeft="4dp" />
 
 
-            <com.caij.codehub.widgets.GithubTypeFaceTextView
+            <com.rafael.githubmngr.widgets.GithubTypeFaceTextView
                 android:id="@+id/tv_fork_icon"
                 style="@style/TvIcon"
                 android:layout_marginLeft="@dimen/standard_margin"
