@@ -1,11 +1,14 @@
 package com.rafael.githubmngr.ui.activity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,11 +22,14 @@ import com.rafael.githubmngr.CodeHubPrefs;
 import com.rafael.githubmngr.R;
 import com.rafael.githubmngr.bean.User;
 import com.rafael.githubmngr.present.MainPresent;
+import com.rafael.githubmngr.present.SettingPresent;
 import com.rafael.githubmngr.present.ui.MainUi;
+import com.rafael.githubmngr.present.ui.SettingUi;
 import com.rafael.githubmngr.ui.fragment.EventsFragment;
 import com.rafael.githubmngr.ui.fragment.RepositoryPagesFragment;
 import com.rafael.githubmngr.utils.AvatarUrlUtil;
 import com.rafael.githubmngr.utils.CropCircleTransformation;
+import com.rafael.lib.utils.AppManager;
 import com.rafael.lib.utils.ToastUtil;
 
 import java.util.List;
@@ -32,7 +38,7 @@ import butterknife.Bind;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseCodeHubToolBarActivity implements MainUi {
+public class MainActivity extends BaseCodeHubToolBarActivity implements MainUi, SettingUi, DialogInterface.OnClickListener {
 
     @Bind(R.id.img_navigation_avatar)
     ImageView mNavigationAvatarImageView;
@@ -40,6 +46,10 @@ public class MainActivity extends BaseCodeHubToolBarActivity implements MainUi {
     TextView mNavigationUsernameTextView;
     @Bind(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
+
+    private ProgressDialog mLogoutLoadingDialog;
+    private AlertDialog mLogoutConfirmDialog;
+    private SettingPresent mSettingPresent;
 
     private User mUser;
 
@@ -60,6 +70,19 @@ public class MainActivity extends BaseCodeHubToolBarActivity implements MainUi {
         mDrawerLayout.setDrawerListener(toggle);
         mMainPresent = new MainPresent(this);
 
+        mLogoutConfirmDialog = new AlertDialog.Builder(this).
+                setMessage(R.string.wether_logout).
+                setPositiveButton(getString(R.string.ok), this).
+                setNegativeButton(getString(R.string.cancel), null).
+                create();
+        mLogoutLoadingDialog = new ProgressDialog(this);
+        mLogoutLoadingDialog.setMessage(getString(R.string.loginout));
+        mLogoutLoadingDialog.setProgressStyle(R.style.AppCompatAlertDialogStyle);
+        mLogoutLoadingDialog.setCancelable(false);
+
+        mSettingPresent = new SettingPresent(this);
+
+        mSettingPresent = new SettingPresent(this);
         mRepositoryPagesFragment = new RepositoryPagesFragment();
         mEventsFragment = new EventsFragment();
         mEventsFragment.setUserVisibleHint(true);
@@ -143,11 +166,9 @@ public class MainActivity extends BaseCodeHubToolBarActivity implements MainUi {
         }
     }
 
-    @OnClick(R.id.ll_setting)
-    public void onSettingClick() {
-        mDrawerLayout.closeDrawer(Gravity.LEFT);
-        Intent intent = new Intent(this, SettingActivity.class);
-        startActivity(intent);
+    @OnClick(R.id.rl_login_out)
+    public void onLogoutClick() {
+        mLogoutConfirmDialog.show();
     }
 
 
@@ -167,5 +188,35 @@ public class MainActivity extends BaseCodeHubToolBarActivity implements MainUi {
         for (Fragment fragment : fragments) {
             fragment.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    @Override
+    public void logoutSuccess() {
+        clearDataAndGotoLogin();
+    }
+
+    @Override
+    public void showLogoutLoading(boolean isVisible) {
+
+    }
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+        if (which == DialogInterface.BUTTON_POSITIVE) {
+            logout();
+        }
+    }
+
+    private void clearDataAndGotoLogin() {
+        CodeHubPrefs.get().logout();
+        AppManager.getInstance().finishAllActivity();
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    private void logout() {
+        String tokenId = CodeHubPrefs.get().getTokenId();
+        String baseUsernameAndPwd = CodeHubPrefs.get().getBase64UsernameAndPwd();
+        mSettingPresent.logout(baseUsernameAndPwd, tokenId);
     }
 }

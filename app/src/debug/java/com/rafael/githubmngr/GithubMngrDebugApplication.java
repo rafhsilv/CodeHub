@@ -6,7 +6,7 @@ import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
-public class CodeHubDebugApplication extends CodeHubApplication {
+public class GithubMngrDebugApplication extends GithubMngrApplication {
 
     private RefWatcher refWatcher;
 
@@ -22,7 +22,7 @@ public class CodeHubDebugApplication extends CodeHubApplication {
     }
 
     public static RefWatcher getRefWatcher(Context context) {
-        CodeHubDebugApplication application = (CodeHubDebugApplication) context.getApplicationContext();
+        GithubMngrDebugApplication application = (GithubMngrDebugApplication) context.getApplicationContext();
         return application.refWatcher;
     }
 }

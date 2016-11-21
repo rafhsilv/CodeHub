@@ -8,7 +8,7 @@ import com.rafael.lib.utils.SPUtils;
 import com.rafael.lib.utils.VolleyManager;
 import com.rafael.lib.volley.stack.OkHttpStack;
 
-public class CodeHubApplication extends Application{
+public class GithubMngrApplication extends Application{
 
     private static final String SP_FILE_NAME = "profile";
 
