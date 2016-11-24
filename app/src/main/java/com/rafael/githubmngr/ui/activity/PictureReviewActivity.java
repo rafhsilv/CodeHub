@@ -19,7 +19,7 @@ import butterknife.OnClick;
 /**
  * Created by Rafael on 2016/12/4.
  */
-public class PictureReviewActivity extends BaseCodeHubActivity{
+public class PictureReviewActivity extends BaseGithubMngrActivity {
 
     @Bind(R.id.imageview)
     ImageView mImageView;

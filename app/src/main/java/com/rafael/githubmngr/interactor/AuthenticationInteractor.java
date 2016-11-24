@@ -9,10 +9,10 @@ import java.util.List;
  * /8/25.
  */
 public interface AuthenticationInteractor extends Interactor {
-    public void login(String username, String pwd, Object requestTag, InteractorCallBack<Token> interactorCallBack);
+    void login(String username, String pwd, Object requestTag, InteractorCallBack<Token> interactorCallBack);
 
-    public void logout(String base64UsernameAndPwd, String tokenId, Object requestTag, InteractorCallBack<NetworkResponse> interactorCallBack);
+    void logout(String base64UsernameAndPwd, String tokenId, Object requestTag, InteractorCallBack<NetworkResponse> interactorCallBack);
 
-    public void getHaveTokens(final String username, final String pwd, Object requestTag, final InteractorCallBack<List<Token>> interactorCallBack);
+    void getHaveTokens(final String username, final String pwd, Object requestTag, final InteractorCallBack<List<Token>> interactorCallBack);
 
 }

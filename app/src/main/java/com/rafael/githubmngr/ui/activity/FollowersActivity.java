@@ -10,7 +10,7 @@ import com.rafael.githubmngr.ui.fragment.FollowersFragment;
 /**
  * Created by Rafael on 2016/9/25.
  */
-public class FollowersActivity extends BaseCodeHubToolBarActivity{
+public class FollowersActivity extends BaseGithubMngrToolBarActivity {
 
     public static Intent newIntent(Activity activity, String username) {
         Intent intent = new Intent(activity, FollowersActivity.class);

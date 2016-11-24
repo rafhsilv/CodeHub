@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.rafael.githubmngr.CodeHubPrefs;
+import com.rafael.githubmngr.GithubMngrPrefs;
 import com.rafael.githubmngr.Constant;
 import com.rafael.githubmngr.R;
 import com.rafael.githubmngr.bean.User;
@@ -32,7 +32,7 @@ import butterknife.OnClick;
 /**
  * Created by Rafael on 2016/9/19.
  */
-public class UserInfoActivity extends BaseCodeHubToolBarActivity implements UserUi, UserInfoUi {
+public class UserInfoActivity extends BaseGithubMngrToolBarActivity implements UserUi, UserInfoUi {
 
     @Bind(R.id.img_user_avatar)
     ImageView mUserAvatarImageView;
@@ -73,14 +73,14 @@ public class UserInfoActivity extends BaseCodeHubToolBarActivity implements User
     @Override
     protected void handleIntent(Intent intent) {
         hideContentContainer();
-        mToken = CodeHubPrefs.get().getToken();
+        mToken = GithubMngrPrefs.get().getToken();
         mUsername = intent.getStringExtra(Constant.USER_NAME);
         setTitle(mUsername);
 
         mUserInfoPresent = new UserInfoPresent(this);
         mUserInfoPresent.getUserInfo(mToken, mUsername);
 
-        if (!mUsername.equals(CodeHubPrefs.get().getUsername())) { //self
+        if (!mUsername.equals(GithubMngrPrefs.get().getUsername())) { //self
             mUserInfoPresent.getFollowState(mToken, mUsername);
         }
     }
@@ -92,8 +92,8 @@ public class UserInfoActivity extends BaseCodeHubToolBarActivity implements User
 
     protected void handlerData(User user) {
         mUser = user;
-        if (user.getLogin().equals(CodeHubPrefs.get().getUsername())) {
-            CodeHubPrefs.get().setUser(user);
+        if (user.getLogin().equals(GithubMngrPrefs.get().getUsername())) {
+            GithubMngrPrefs.get().setUser(user);
         }
         showContentContainer();
         Glide.with(this).load(AvatarUrlUtil.restoreAvatarUrl(user.getAvatar_url())).

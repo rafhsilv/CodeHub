@@ -27,16 +27,4 @@
 
     </group>
 
-    <item android:title="@string/preferences">
-        <menu>
-            <item
-                android:id="@+id/nav_setting"
-                android:title="@string/action_settings" />
-            <item
-                android:id="@+id/nav_about"
-                android:title="@string/about" />
-        </menu>
-    </item>
-
-
 </menu>

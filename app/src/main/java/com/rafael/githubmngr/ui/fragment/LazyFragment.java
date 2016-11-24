@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 /**
  * Created by Rafael on 2016/9/18.
  */
-public abstract class LazyFragment extends BaseCodeHubFragment{
+public abstract class LazyFragment extends BaseGithubMngrFragment {
 
     private boolean isFirstVisible = true;
     private boolean isPrepared = false;

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.EditText;
 
-import com.rafael.githubmngr.CodeHubPrefs;
+import com.rafael.githubmngr.GithubMngrPrefs;
 import com.rafael.githubmngr.Constant;
 import com.rafael.githubmngr.R;
 import com.rafael.githubmngr.bean.Comment;
@@ -18,7 +18,7 @@ import butterknife.OnClick;
 /**
  * Created by Rafael on 2016/11/3.
  */
-public class CommentActivity extends BaseCodeHubToolBarActivity implements CommentUi {
+public class CommentActivity extends BaseGithubMngrToolBarActivity implements CommentUi {
 
     @Bind(R.id.edit_comment)
     EditText mEditComment;
@@ -49,7 +49,7 @@ public class CommentActivity extends BaseCodeHubToolBarActivity implements Comme
         mRepo = intent.getStringExtra(Constant.REPO_NAME);
         mIssueNumber = intent.getStringExtra(Constant.ISSUE_NUMBER);
         mOwner = intent.getStringExtra(Constant.USER_NAME);
-        mToken = CodeHubPrefs.get().getToken();
+        mToken = GithubMngrPrefs.get().getToken();
     }
 
     @OnClick(R.id.btn_comment)

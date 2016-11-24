@@ -5,7 +5,7 @@
 //import android.content.Intent;
 //import android.support.v7.app.AlertDialog;
 //
-//import com.rafael.githubmngr.CodeHubPrefs;
+//import com.rafael.githubmngr.GithubMngrPrefs;
 //import com.rafael.githubmngr.R;
 //import com.rafael.githubmngr.present.SettingPresent;
 //import com.rafael.githubmngr.present.ui.SettingUi;
@@ -16,7 +16,7 @@
 ///**
 // * Created by Rafael on 2016/11/3.
 // */
-//public class SettingActivity extends BaseCodeHubToolBarActivity implements DialogInterface.OnClickListener, SettingUi {
+//public class SettingActivity extends BaseGithubMngrToolBarActivity implements DialogInterface.OnClickListener, SettingUi {
 //
 //    private ProgressDialog mLogoutLoadingDialog;
 //    private AlertDialog mLogoutConfirmDialog;
@@ -49,13 +49,13 @@
 //    }
 //
 //    private void logout() {
-//        String tokenId = CodeHubPrefs.get().getTokenId();
-//        String baseUsernameAndPwd = CodeHubPrefs.get().getBase64UsernameAndPwd();
+//        String tokenId = GithubMngrPrefs.get().getTokenId();
+//        String baseUsernameAndPwd = GithubMngrPrefs.get().getBase64UsernameAndPwd();
 //        mSettingPresent.logout(baseUsernameAndPwd, tokenId);
 //    }
 //
 //    private void clearDataAndGotoLogin() {
-//        CodeHubPrefs.get().logout();
+//        GithubMngrPrefs.get().logout();
 //        AppManager.getInstance().finishAllActivity();
 //        Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
 //        startActivity(intent);

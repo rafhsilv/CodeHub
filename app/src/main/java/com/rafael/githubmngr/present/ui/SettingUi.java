@@ -7,8 +7,8 @@ package com.rafael.githubmngr.present.ui;
  */
 public interface SettingUi extends BaseUi{
 
-    public void logoutSuccess();
+    void logoutSuccess();
 
-    public void showLogoutLoading(boolean isVisible);
+    void showLogoutLoading(boolean isVisible);
 
 }

@@ -16,7 +16,7 @@ import butterknife.Bind;
 import butterknife.OnClick;
 
 
-public class TrendingFilterActivity extends BaseCodeHubActivity{
+public class TrendingFilterActivity extends BaseGithubMngrActivity {
 
     @Bind(R.id.time)
     RadioGroup mSinceRadioGroup;

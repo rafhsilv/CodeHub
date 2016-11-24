@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.rafael.githubmngr.CodeHubPrefs;
+import com.rafael.githubmngr.GithubMngrPrefs;
 import com.rafael.githubmngr.Constant;
 import com.rafael.githubmngr.present.LoadType;
 import com.rafael.githubmngr.present.RepositoriesPresent;
@@ -34,7 +34,7 @@ public class UserStarredRepositoriesFragment extends RepositoriesFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mUsername = getArguments().getString(Constant.USER_NAME);
-        mToken = CodeHubPrefs.get().getToken();
+        mToken = GithubMngrPrefs.get().getToken();
         mRepositoriesPresent = new RepositoriesPresent(this);
     }
 

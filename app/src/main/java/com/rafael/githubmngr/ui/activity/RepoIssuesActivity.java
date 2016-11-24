@@ -10,7 +10,7 @@ import com.rafael.githubmngr.ui.fragment.RepoIssuesFragment;
 /**
  * Created by Rafael on 2016/11/3.
  */
-public class RepoIssuesActivity extends BaseCodeHubToolBarActivity {
+public class RepoIssuesActivity extends BaseGithubMngrToolBarActivity {
 
     public static Intent newIntent(Activity activity, String owner, String repo) {
         Intent intent = new Intent(activity, RepoIssuesActivity.class);

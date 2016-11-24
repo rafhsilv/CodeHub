@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 
-import com.rafael.githubmngr.CodeHubPrefs;
+import com.rafael.githubmngr.GithubMngrPrefs;
 import com.rafael.githubmngr.R;
 
-public class InitActivity extends BaseCodeHubActivity {
+public class InitActivity extends BaseGithubMngrActivity {
 
     public static final long SKIP_DELAY_TIME = 3000;
 
@@ -33,7 +33,7 @@ public class InitActivity extends BaseCodeHubActivity {
             @Override
             public void run() {
                 Intent intent;
-                if (TextUtils.isEmpty(CodeHubPrefs.get().getToken())) {
+                if (TextUtils.isEmpty(GithubMngrPrefs.get().getToken())) {
                     intent = new Intent(InitActivity.this, LoginActivity.class);
                 } else {
                     intent = new Intent(InitActivity.this, MainActivity.class);

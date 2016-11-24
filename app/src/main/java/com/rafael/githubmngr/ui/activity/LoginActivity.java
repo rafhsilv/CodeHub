@@ -4,7 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.widget.EditText;
 
-import com.rafael.githubmngr.CodeHubPrefs;
+import com.rafael.githubmngr.GithubMngrPrefs;
 import com.rafael.githubmngr.R;
 import com.rafael.githubmngr.bean.Token;
 import com.rafael.githubmngr.present.UserLoginPresent;
@@ -16,7 +16,7 @@ import butterknife.OnClick;
 /**
  * Created by Rafael on 2016/8/26.
  */
-public class LoginActivity extends BaseCodeHubToolBarActivity implements UserLoginUi {
+public class LoginActivity extends BaseGithubMngrToolBarActivity implements UserLoginUi {
 
     @Bind(R.id.edit_username)
     EditText mEditUsername;
@@ -48,8 +48,8 @@ public class LoginActivity extends BaseCodeHubToolBarActivity implements UserLog
 
     @Override
     public void onLoginSuccess(Token token) {
-        CodeHubPrefs.get().setToken(token);
-        CodeHubPrefs.get().setUsernameAndPwd(mEditUsername.getText().toString(), mEditPassword.getText().toString());
+        GithubMngrPrefs.get().setToken(token);
+        GithubMngrPrefs.get().setUsernameAndPwd(mEditUsername.getText().toString(), mEditPassword.getText().toString());
         Intent intent = MainActivity.newIntent(this);
         startActivity(intent);
         finish();

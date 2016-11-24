@@ -11,7 +11,7 @@ import com.rafael.githubmngr.ui.fragment.IssueInfoFragment;
 /**
  * Created by Rafael on 2016/10/31.
  */
-public class IssueInfoActivity extends BaseCodeHubToolBarActivity {
+public class IssueInfoActivity extends BaseGithubMngrToolBarActivity {
 
     public static Intent newIntent(Activity activity, String owner, String repo, String issueNumber, String issueTitle, String issueBody) {
         Intent intent = new Intent(activity, IssueInfoActivity.class);

@@ -12,7 +12,7 @@ import com.rafael.githubmngr.ui.fragment.UserRepositoriesFragment;
 /**
  * Created by Rafael on 2016/9/24.
  */
-public class UserRepositoriesActivity extends BaseCodeHubToolBarActivity {
+public class UserRepositoriesActivity extends BaseGithubMngrToolBarActivity {
 
 
     public static Intent newIntent(Activity activity, String username) {

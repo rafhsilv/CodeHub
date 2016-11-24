@@ -8,7 +8,7 @@ import com.rafael.githubmngr.utils.Base64;
 import com.rafael.lib.utils.GsonUtils;
 import com.rafael.lib.utils.SPUtils;
 
-public class CodeHubPrefs {
+public class GithubMngrPrefs {
 
     public static final String USER_TOKEN = "user_token";
     public static final String USER_NAME = "user_name";
@@ -16,7 +16,7 @@ public class CodeHubPrefs {
     public static final String BASE64_USERNAME_AND_PWD = "base64_username_and_pwd";
     public static final String USER = "user";
 
-    private static CodeHubPrefs singleton;
+    private static GithubMngrPrefs singleton;
 
     private String username;
     private String base64UsernameAndPwd;
@@ -24,7 +24,7 @@ public class CodeHubPrefs {
     private String tokenId;
     private User user;
 
-    public CodeHubPrefs() {
+    public GithubMngrPrefs() {
         username = SPUtils.getString(USER_NAME, null);
         base64UsernameAndPwd = SPUtils.getString(BASE64_USERNAME_AND_PWD, null);
         token = SPUtils.getString(USER_TOKEN, null);
@@ -35,11 +35,11 @@ public class CodeHubPrefs {
         }
     }
 
-    public static CodeHubPrefs get() {
+    public static GithubMngrPrefs get() {
         if (singleton == null) {
-            synchronized (CodeHubPrefs.class) {
+            synchronized (GithubMngrPrefs.class) {
                 if (singleton == null) {
-                    singleton = new CodeHubPrefs();
+                    singleton = new GithubMngrPrefs();
                 }
             }
         }
@@ -96,5 +96,6 @@ public class CodeHubPrefs {
         SPUtils.saveString(USER_NAME, null);
         SPUtils.saveString(USER_TOKEN_ID, null);
         SPUtils.saveString(BASE64_USERNAME_AND_PWD, null);
+        user = null;
     }
 }

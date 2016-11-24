@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.rafael.githubmngr.API;
-import com.rafael.githubmngr.CodeHubPrefs;
+import com.rafael.githubmngr.GithubMngrPrefs;
 import com.rafael.githubmngr.Constant;
 import com.rafael.githubmngr.R;
 import com.rafael.githubmngr.bean.Repository;
@@ -25,7 +25,7 @@ import butterknife.OnClick;
 /**
  * Created by Rafael on 2016/9/19.
  */
-public class RepositoryInfoActivity extends BaseCodeHubToolBarActivity implements RepositoryInfoUi {
+public class RepositoryInfoActivity extends BaseGithubMngrToolBarActivity implements RepositoryInfoUi {
 
     @Bind(R.id.tv_repository_creater)
     TextView mRepositoryCreateTextView;
@@ -67,7 +67,7 @@ public class RepositoryInfoActivity extends BaseCodeHubToolBarActivity implement
         mContentContainer.setVisibility(View.GONE);
         mOwner = intent.getStringExtra(Constant.USER_NAME);
         mRepo = intent.getStringExtra(Constant.REPO_NAME);
-        mToken = CodeHubPrefs.get().getToken();
+        mToken = GithubMngrPrefs.get().getToken();
 
         setTitle(mRepo);
 

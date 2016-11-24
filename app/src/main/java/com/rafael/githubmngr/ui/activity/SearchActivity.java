@@ -28,7 +28,7 @@ import com.rafael.githubmngr.R;
 import com.rafael.githubmngr.ui.fragment.SearchRepositoriesFragment;
 
 
-public class SearchActivity extends BaseCodeHubToolBarActivity {
+public class SearchActivity extends BaseGithubMngrToolBarActivity {
 
     private String mQuery;
     private SearchRepositoriesFragment mSearchRepositoriesFragment;

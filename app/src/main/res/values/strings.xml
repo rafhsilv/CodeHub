@@ -83,7 +83,6 @@
     <string name="logining">Logging in</string>
     <string name="hint">Hint</string>
     <string name="loginout">Logging Out</string>
-    <string name="about">About</string>
     <string name="current_version">Current Version</string>
     <string name="follows">Follows</string>
     <string name="following">Following</string>
@@ -106,9 +105,7 @@
     <string name="source">Source</string>
     <string name="comment">Comment</string>
     <string name="password_error">username or password is incorrect</string>
-    <string name="about_me_github">https://github.com/rafhsilv</string>
     <string name="my_email">rafaelhsilva0@gmail.com</string>
-    <string name="about_me">About Me</string>
     <string name="page_nothing">There\'s nothing</string>
     <string name="user_info">user_info</string>
     <string name="user_info_avatar">user_info_avatar</string>

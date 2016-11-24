@@ -12,7 +12,7 @@ import butterknife.Bind;
 /**
  * Created by Rafael on 2016/9/19.
  */
-public abstract class BaseCodeHubToolBarActivity extends BaseCodeHubActivity{
+public abstract class BaseGithubMngrToolBarActivity extends BaseGithubMngrActivity {
 
     @Bind(R.id.toolbar)
     protected Toolbar mToolbar;
@@ -31,7 +31,7 @@ public abstract class BaseCodeHubToolBarActivity extends BaseCodeHubActivity{
 
     @Override
     protected int getContentLayoutId() {
-        return R.layout.activity_base_codehub_toolbar;
+        return R.layout.activity_base_githubmngr_toolbar;
     }
 
     @Override

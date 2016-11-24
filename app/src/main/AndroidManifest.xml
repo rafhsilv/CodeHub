@@ -98,11 +98,6 @@
         </activity>
 
         <activity
-            android:name="com.rafael.githubmngr.ui.activity.AboutActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity
             android:name="com.rafael.githubmngr.ui.activity.SearchActivity"
             android:screenOrientation="portrait">
         </activity>

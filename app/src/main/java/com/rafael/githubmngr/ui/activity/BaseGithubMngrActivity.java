@@ -1,10 +1,8 @@
-package com.rafael.githubmngr.ui.fragment;
+package com.rafael.githubmngr.ui.activity;
 
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
@@ -13,19 +11,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import com.rafael.githubmngr.CodeHubPrefs;
+import com.rafael.githubmngr.GithubMngrPrefs;
 import com.rafael.githubmngr.R;
 import com.rafael.githubmngr.present.ui.BaseUi;
-import com.rafael.githubmngr.ui.activity.LoginActivity;
 import com.rafael.lib.utils.AppManager;
 import com.rafael.lib.utils.ToastUtil;
+import com.umeng.analytics.MobclickAgent;
 
 import butterknife.ButterKnife;
 
-/**
- * Created by Rafael on 2016/9/20.
- */
-public abstract class BaseCodeHubFragment extends BaseFragment implements BaseUi{
+
+public abstract class BaseGithubMngrActivity extends BaseActivity implements BaseUi{
 
     ViewStub mAnimLoadingViewStub;
     ViewStub mProLoadingViewStub;
@@ -36,48 +32,54 @@ public abstract class BaseCodeHubFragment extends BaseFragment implements BaseUi
     ProgressBar mLoadingProgressBar;
     ViewGroup mContentContainer;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_base_code_hub, container, false);
-        mContentContainer = (ViewGroup) view.findViewById(R.id.fl_content_container);
-        if (getAttachLayoutId() !=  0) {
-            getActivity().getLayoutInflater().inflate(getAttachLayoutId(), mContentContainer, true);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(getContentLayoutId());
+        mContentContainer = (ViewGroup) findViewById(getContentContainerViewId());
+        if ((getAttachLayoutId() >>> 24) >= 2) {  //is resource id.
+            getLayoutInflater().inflate(getAttachLayoutId(), mContentContainer, true);
         }
-        mLoadErrorViewStub = (ViewStub) view.findViewById(R.id.vs_load_error);
-        mAnimLoadingViewStub = (ViewStub) view.findViewById(R.id.vs_anim_loading);
-        mProLoadingViewStub = (ViewStub) view.findViewById(R.id.vs_progress_bar_loading);
-        ButterKnife.bind(this, view);
-        return view;
+        mLoadErrorViewStub = (ViewStub) findViewById(R.id.vs_load_error);
+        mAnimLoadingViewStub = (ViewStub) findViewById(R.id.vs_anim_loading);
+        mProLoadingViewStub = (ViewStub) findViewById(R.id.vs_progress_bar_loading);
+        ButterKnife.bind(this);
+    }
+
+    protected int getContentLayoutId() {
+        return R.layout.activity_base_githubmngr;
     }
 
     protected abstract int getAttachLayoutId();
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.unbind(this);
+    protected int getContentContainerViewId() {
+        return R.id.fl_content_container;
     }
 
-    protected  void hideError(){
-        if (mLoadErrorLinearLayout != null) {
-            mLoadErrorLinearLayout.setVisibility(View.GONE);
-        }
+
+    public void onReFreshBtnClick(View view) {
+        showError(false);
     }
 
-    protected void showError() {
-        if (mLoadErrorLinearLayout == null) {
-            View view = mLoadErrorViewStub.inflate();
-            mLoadErrorLinearLayout = (LinearLayout) view.findViewById(R.id.ll_load_error);
-            Button btnRefresh = (Button) view.findViewById(R.id.btn_refresh);
-            btnRefresh.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onReFreshBtnClick(view);
-                }
-            });
+    protected void showError(boolean isVisible) {
+        if (isVisible) {
+            if (mLoadErrorLinearLayout == null) {
+                View view = mLoadErrorViewStub.inflate();
+                mLoadErrorLinearLayout = (LinearLayout) view.findViewById(R.id.ll_load_error);
+                Button btnRefresh = (Button) view.findViewById(R.id.btn_refresh);
+                btnRefresh.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        onReFreshBtnClick(view);
+                    }
+                });
+            }
+            mLoadErrorLinearLayout.setVisibility(View.VISIBLE);
+        }else {
+            if (mLoadErrorLinearLayout != null) {
+                mLoadErrorLinearLayout.setVisibility(View.GONE);
+            }
         }
-        mLoadErrorLinearLayout.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -107,7 +109,7 @@ public abstract class BaseCodeHubFragment extends BaseFragment implements BaseUi
             }
             mLoadingProgressBar.setVisibility(View.VISIBLE);
         }else {
-            if (mLoadingLinearLayout != null) {
+            if (mLoadingProgressBar != null) {
                 mLoadingProgressBar.setVisibility(View.GONE);
             }
         }
@@ -121,26 +123,39 @@ public abstract class BaseCodeHubFragment extends BaseFragment implements BaseUi
         mContentContainer.setVisibility(View.GONE);
     }
 
-    public void onReFreshBtnClick(View view) {
-        hideError();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ButterKnife.unbind(this);
     }
 
     @Override
     public void onAuthError() {
-        CodeHubPrefs.get().logout();
-        AppManager.getInstance().finishAllActivityExcept(getActivity());
-        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        GithubMngrPrefs.get().logout();
+        AppManager.getInstance().finishAllActivity();
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
-        getActivity().finish();
     }
 
     @Override
     public void showError(int msgId) {
-        ToastUtil.show(getActivity(), msgId);
+        ToastUtil.show(this, msgId);
     }
 
     @Override
     public void showContentError() {
-        showError();
+        showError(true);
     }
 }

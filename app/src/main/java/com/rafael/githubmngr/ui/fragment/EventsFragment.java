@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
-import com.rafael.githubmngr.CodeHubPrefs;
+import com.rafael.githubmngr.GithubMngrPrefs;
 import com.rafael.githubmngr.R;
 import com.rafael.githubmngr.bean.Page;
 import com.rafael.githubmngr.bean.event.Event;
@@ -41,17 +41,17 @@ public class EventsFragment extends SwipeRefreshRecyclerViewFragment<Event> impl
         setHasOptionsMenu(false);
         mPage = new Page();
         mEventsPresent = new EventsPresent(this);
-        mToken = CodeHubPrefs.get().getToken();
+        mToken = GithubMngrPrefs.get().getToken();
     }
 
     @Override
     protected void onUserFirstVisible() {
-        mEventsPresent.getReceivedEvents(LoadType.FIRST, CodeHubPrefs.get().getUsername(), mToken, mPage);
+        mEventsPresent.getReceivedEvents(LoadType.FIRST, GithubMngrPrefs.get().getUsername(), mToken, mPage);
     }
 
     @Override
     public void onRefresh() {
-        mEventsPresent.getReceivedEvents(LoadType.REFRESH, CodeHubPrefs.get().getUsername(), mToken, mPage.createRefreshPage());
+        mEventsPresent.getReceivedEvents(LoadType.REFRESH, GithubMngrPrefs.get().getUsername(), mToken, mPage.createRefreshPage());
     }
 
     @Override
@@ -80,7 +80,7 @@ public class EventsFragment extends SwipeRefreshRecyclerViewFragment<Event> impl
     public void onReFreshBtnClick(View view) {
         super.onReFreshBtnClick(view);
         mPage.reset();
-        mEventsPresent.getReceivedEvents(LoadType.FIRST, CodeHubPrefs.get().getUsername(), mToken, mPage);
+        mEventsPresent.getReceivedEvents(LoadType.FIRST, GithubMngrPrefs.get().getUsername(), mToken, mPage);
     }
 
     @Override
@@ -104,7 +104,7 @@ public class EventsFragment extends SwipeRefreshRecyclerViewFragment<Event> impl
 
     @Override
     public void onLoadMore() {
-        mEventsPresent.getReceivedEvents(LoadType.LOADMORE, CodeHubPrefs.get().getUsername(), mToken, mPage);
+        mEventsPresent.getReceivedEvents(LoadType.LOADMORE, GithubMngrPrefs.get().getUsername(), mToken, mPage);
     }
 
     @Override

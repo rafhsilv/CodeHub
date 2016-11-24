@@ -15,7 +15,7 @@ import butterknife.Bind;
 /**
  * Created by Rafael on 2016/11/2.
  */
-public class FileTreeActivity extends BaseCodeHubToolBarActivity implements LinearBreadcrumb.SelectionCallback, FileTreeFragment.LinearBreadcrumbInterface {
+public class FileTreeActivity extends BaseGithubMngrToolBarActivity implements LinearBreadcrumb.SelectionCallback, FileTreeFragment.LinearBreadcrumbInterface {
 
     private static final String TAG = "FileTreeActivity";
     @Bind(R.id.bread_crumbs)

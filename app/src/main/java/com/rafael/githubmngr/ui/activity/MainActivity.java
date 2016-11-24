@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.rafael.githubmngr.CodeHubPrefs;
+import com.rafael.githubmngr.GithubMngrPrefs;
 import com.rafael.githubmngr.R;
 import com.rafael.githubmngr.bean.User;
 import com.rafael.githubmngr.present.MainPresent;
@@ -38,7 +38,7 @@ import butterknife.Bind;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseCodeHubToolBarActivity implements MainUi, SettingUi, DialogInterface.OnClickListener {
+public class MainActivity extends BaseGithubMngrToolBarActivity implements MainUi, SettingUi, DialogInterface.OnClickListener {
 
     @Bind(R.id.img_navigation_avatar)
     ImageView mNavigationAvatarImageView;
@@ -82,7 +82,6 @@ public class MainActivity extends BaseCodeHubToolBarActivity implements MainUi, 
 
         mSettingPresent = new SettingPresent(this);
 
-        mSettingPresent = new SettingPresent(this);
         mRepositoryPagesFragment = new RepositoryPagesFragment();
         mEventsFragment = new EventsFragment();
         mEventsFragment.setUserVisibleHint(true);
@@ -90,9 +89,9 @@ public class MainActivity extends BaseCodeHubToolBarActivity implements MainUi, 
         getSupportFragmentManager().beginTransaction().add(R.id.main_content, mRepositoryPagesFragment).commit();
         mCurrentShowFragment = mRepositoryPagesFragment;
 
-        User user = CodeHubPrefs.get().getUser();
+        User user = GithubMngrPrefs.get().getUser();
         if (user == null) {
-            mMainPresent.getUserInfo(CodeHubPrefs.get().getToken(), CodeHubPrefs.get().getUsername());
+            mMainPresent.getUserInfo(GithubMngrPrefs.get().getToken(), GithubMngrPrefs.get().getUsername());
         }else {
             onGetUserInfoSuccess(user);
         }
@@ -101,7 +100,7 @@ public class MainActivity extends BaseCodeHubToolBarActivity implements MainUi, 
     @Override
     public void onGetUserInfoSuccess(User user) {
         mUser = user;
-        CodeHubPrefs.get().setUser(user);
+        GithubMngrPrefs.get().setUser(user);
         mNavigationUsernameTextView.setText(user.getLogin());
         Glide.with(MainActivity.this).load(AvatarUrlUtil.restoreAvatarUrl(user.getAvatar_url())).
                 placeholder(R.drawable.ic_default_circle_head_image).diskCacheStrategy(DiskCacheStrategy.ALL).
@@ -128,6 +127,7 @@ public class MainActivity extends BaseCodeHubToolBarActivity implements MainUi, 
     @Override
     protected void onDestroy() {
         mMainPresent.onDeath();
+        mSettingPresent.onDeath();
         super.onDestroy();
     }
 
@@ -140,7 +140,7 @@ public class MainActivity extends BaseCodeHubToolBarActivity implements MainUi, 
     public void onUserOnClick() {
         if (mUser == null)  {
             ToastUtil.show(this, R.string.user_info_error);
-            mMainPresent.getUserInfo(CodeHubPrefs.get().getToken(),  CodeHubPrefs.get().getUsername());
+            mMainPresent.getUserInfo(GithubMngrPrefs.get().getToken(),  GithubMngrPrefs.get().getUsername());
             return;
         }
         mDrawerLayout.closeDrawer(Gravity.LEFT);
@@ -208,15 +208,16 @@ public class MainActivity extends BaseCodeHubToolBarActivity implements MainUi, 
     }
 
     private void clearDataAndGotoLogin() {
-        CodeHubPrefs.get().logout();
+        GithubMngrPrefs.get().logout();
         AppManager.getInstance().finishAllActivity();
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 
     private void logout() {
-        String tokenId = CodeHubPrefs.get().getTokenId();
-        String baseUsernameAndPwd = CodeHubPrefs.get().getBase64UsernameAndPwd();
+        String tokenId = GithubMngrPrefs.get().getTokenId();
+        String baseUsernameAndPwd = GithubMngrPrefs.get().getBase64UsernameAndPwd();
         mSettingPresent.logout(baseUsernameAndPwd, tokenId);
+        GithubMngrPrefs.get().logout();
     }
 }
